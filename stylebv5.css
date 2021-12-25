@@ -1,0 +1,33 @@
+.jumbotron {
+  background-image: url(asset/Data\ science.jpg);
+  background-size: cover;
+  padding-top: 2rem;
+  background-color: #afccfa;
+  color: greenyellow;
+  background-attachment: fixed;
+  background-position: -250px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active .satu {
+  margin-top: 22%;
+}
+
+.carousel-inner {
+  min-height: 350px;
+}
+
+.card {
+  min-height: 500px;
+}
+
+footer a {
+  color: greenyellow;
+}
+
+#about {
+  min-height: 500px;
+}
