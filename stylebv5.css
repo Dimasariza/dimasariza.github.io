@@ -2,7 +2,6 @@
   background-image: url(asset/Data\ science.jpg);
   background-size: cover;
   padding-top: 2rem;
-  background-color: #afccfa;
   color: greenyellow;
   background-attachment: fixed;
   background-position: -250px 0;
@@ -25,9 +24,22 @@ a {
 }
 
 footer a {
+  color: white;
+}
+
+footer a:hover {
   color: greenyellow;
 }
 
 #about {
   min-height: 400px;
+}
+
+.kal-1 {
+  font-size: 0.9rem;
+}
+
+footer {
+  min-height: 100px;
+  font-size: 1.25rem;
 }
