@@ -31,11 +31,41 @@ a {
   padding-top: 10px;
 }
 
-#sidebar {
-  min-height: 500px;
-  background-color: rgb(243, 243, 243);
+.head-conten hr{
+  border:none;
+  border-top : 1.5px dashed navy;
+  color:#fff;
+  background-color:#fff;
+  height:5px;
+  width:70%;
 }
 
-#sidebar .col-md-8 {
-  background-color: rgb(219, 149, 149);
+.kal-1 {
+  font-size: 0.9rem;
+}
+
+.isi-conten {
+  padding-left: 20px;
+}
+
+.isi-conten .number {
+  width: 12px;
+}
+
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: greenyellow;
+}
+
+.cpr {
+  transform: scale(0.5);
+}
+
+footer {
+  min-height: 100px;
+  font-size: 1.25rem;
 }

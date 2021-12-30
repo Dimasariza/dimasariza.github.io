@@ -23,13 +23,7 @@ a {
   min-height: 500px;
 }
 
-footer a {
-  color: white;
-}
 
-footer a:hover {
-  color: greenyellow;
-}
 
 #about {
   min-height: 400px;
@@ -37,6 +31,18 @@ footer a:hover {
 
 .kal-1 {
   font-size: 0.9rem;
+}
+
+.cpr {
+  transform: scale(0.5);
+}
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: greenyellow;
 }
 
 footer {
