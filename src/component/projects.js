@@ -30,13 +30,10 @@ import rest3 from '../../public/asset/img/restaurant_thai.png';
 import rest4 from '../../public/asset/img/restaurant_japanese.png';
 
 
-import web1 from '../../public/asset/img/web1.jpg';
-import web2 from '../../public/asset/img/web2.jpg';
-
 const projectData = [
     {
         title : "Docking Software",
-        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        description : "I build this website with Angular JS library and Nebular Framework. I have used styled Bootstrap CSS to keep everything organize and responsive. I have implemented react hooks for my toggle. Website content is stored in data folder, which I am using to display content in my sections.",
         demo : "http://docking.batera.id/#/auth/login",
         code : "",
         carousel : [docking1, docking2, docking3, docking4, docking5, docking6]
@@ -165,7 +162,7 @@ export function Projects() {
                             <div className='responsive-grid' key={project.title + id}>
                                 <section>
                                     <h2 className='project-title'>{project.title}</h2>
-                                    <p className='paragraph-text'>{project.description}</p>
+                                    <p className='paragraph-text pr-16'>{project.description}</p>
                                     <div className='flex gap-3'>
                                         <button className="btn bg-blue-400 sm:btn-sm md:btn-md lg:btn-md">
                                             <a href={project.demo} target='blank'>Live Demo</a>

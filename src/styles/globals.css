@@ -31,17 +31,16 @@
     @apply grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 items-center my-20
   }
 
-  .about-bg {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-  }
-
   .paragraph-text {
     @apply text-lg my-6
   }
 }
 
+.about-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+}
 .custom-shape-divider-bottom-1680370847 {
   bottom: 0;
   left: 0;

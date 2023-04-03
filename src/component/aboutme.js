@@ -3,7 +3,7 @@ import me from '../../public/asset/img/me.png';
 
 export default function Aboutme() {
     return (
-        <div className="home-container ">
+        <div className="home-container">
             <h1 className="home-title">About me</h1>
             <div className="responsive-grid" >
                 <p className='paragraph-text'>
@@ -15,8 +15,8 @@ export default function Aboutme() {
                 </p>
                 <div className='w-full flex justify-center'>
                     <div className="card w-80 bg-blue-100 shadow-xl glass">
-                        <figure className=''>
-                            <Image  src={me} alt='background' />
+                        <figure>
+                            <Image src={me} alt='background' />
                         </figure>
                     </div>
                 </div>

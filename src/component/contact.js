@@ -12,11 +12,11 @@ export default function Contact() {
         <div className="home-container">
             <h1 className="home-title">Contact</h1>
             <div className="responsive-grid justify-items-center">
-                <div className="gap-10 flex flex-col  items-center">
+                <div className="gap-10 flex flex-col items-center">
 
                     <div className="card w-50 glass shadow-xl">
                     <figure className="text-green-500 text-6xl p-4"><BsWhatsapp /></figure>
-                        <div className="card-body  items-center text-center">
+                        <div className="card-body items-center text-center">
                             <h2 className="card-title">Whatsapp</h2>
                             <p>My Contact Number +62895421010192</p>
                             <div className="card-actions justify-end">
@@ -27,7 +27,7 @@ export default function Contact() {
 
                     <div className="card w-50 glass shadow-xl">
                     <figure className="text-red-400 text-6xl p-4"><HiOutlineMail /></figure>
-                        <div className="card-body  items-center text-center">
+                        <div className="card-body items-center text-center">
                             <h2 className="card-title">Email</h2>
                             <p>My Email Address dimas.ariza20@gmail.com</p>
                             <div className="card-actions justify-end">
