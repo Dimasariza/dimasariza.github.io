@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Greating from '@/component/greating';
-import Aboutme from '@/component/aboutme';
+// import Aboutme from '@/component/aboutme';
 // import { Projects } from '@/component/projects';
 // import Contact from '@/component/contact';
 // import Footer from '@/component/footer';
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <main >
         <Greating />
-        <Aboutme />
+        {/* <Aboutme /> */}
         {/* <Projects />
         <Contact />
         <Footer /> */}
