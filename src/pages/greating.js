@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-// import Image from 'next/image';
-// import bg from './asset/bg/bg.svg';
+import Image from 'next/image';
+import bg from '../../public/asset/bg/bg.svg';
 
 export default function Greating() {
     return (
@@ -22,7 +22,7 @@ export default function Greating() {
                     <a href="#about_me">See More</a>
                 </button>
             </motion.div>
-        {/* <Image id="about_me" className='about-bg' priority src={bg} alt='background' /> */}
+        <Image id="about_me" className='about-bg' priority src={bg} alt='background' />
         </AnimatePresence>
     )
 }
