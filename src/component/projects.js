@@ -157,80 +157,80 @@ const CarouselType2 = ({carousel}) => {
 }
 
 // use carousel type 3
-const CarouselType3 = ({carousel}) => {
-    if(!carousel) return;
-    const variants = {
-        enter: (direction) => {
-            return {
-                x: direction > 0 ? 1000 : -1000,
-                opacity: 0
-            };
-        },
-        center: {
-            zIndex: 1,
-            x: 0,
-            opacity: 1
-        },
-        exit: (direction) => {
-            return {
-                zIndex: 0,
-                x: direction < 0 ? 1000 : -1000,
-                opacity: 0
-            };
-        }
-    };
+// const CarouselType3 = ({carousel}) => {
+//     if(!carousel) return;
+//     const variants = {
+//         enter: (direction) => {
+//             return {
+//                 x: direction > 0 ? 1000 : -1000,
+//                 opacity: 0
+//             };
+//         },
+//         center: {
+//             zIndex: 1,
+//             x: 0,
+//             opacity: 1
+//         },
+//         exit: (direction) => {
+//             return {
+//                 zIndex: 0,
+//                 x: direction < 0 ? 1000 : -1000,
+//                 opacity: 0
+//             };
+//         }
+//     };
     
-    const swipeConfidenceThreshold = 10000;
-    const swipePower = (offset, velocity) => {
-        return Math.abs(offset) * velocity;
-    };
+//     const swipeConfidenceThreshold = 10000;
+//     const swipePower = (offset, velocity) => {
+//         return Math.abs(offset) * velocity;
+//     };
 
-    const [[page, direction], setPage] = useState([0, 0]);
-    const imageIndex = wrap(0, carousel.length, page);
+//     const [[page, direction], setPage] = useState([0, 0]);
+//     const imageIndex = wrap(0, carousel.length, page);
   
-    const paginate = (newDirection) => {
-      setPage([page + newDirection, newDirection]);
-    };
+//     const paginate = (newDirection) => {
+//       setPage([page + newDirection, newDirection]);
+//     };
 
-    return (
-      <div className='relative flex justify-center align-middle overflow-hidden'>
-        <AnimatePresence initial={false} custom={direction}>
-            <Image
-                key={page}
-                src={carousel[imageIndex]}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                alt='image'
-                transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 }
-                }}
-                drag="x"
-                dragconstraints={{ left: 0, right: 0 }}
-                dragelastic={1}
-                onDragEnd={(e, { offset, velocity }) => {
-                const swipe = swipePower(offset.x, velocity.x);
+//     return (
+//       <div className='relative flex justify-center align-middle overflow-hidden'>
+//         <AnimatePresence initial={false} custom={direction}>
+//             <Image
+//                 key={page}
+//                 src={carousel[imageIndex]}
+//                 custom={direction}
+//                 variants={variants}
+//                 initial="enter"
+//                 animate="center"
+//                 exit="exit"
+//                 alt='image'
+//                 transition={{
+//                     x: { type: "spring", stiffness: 300, damping: 30 },
+//                     opacity: { duration: 0.2 }
+//                 }}
+//                 drag="x"
+//                 dragconstraints={{ left: 0, right: 0 }}
+//                 dragelastic={1}
+//                 onDragEnd={(e, { offset, velocity }) => {
+//                 const swipe = swipePower(offset.x, velocity.x);
     
-                if (swipe < -swipeConfidenceThreshold) {
-                    paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(-1);
-                }
-                }}
-            />
-        </AnimatePresence>
-        <div className="next" onClick={() => paginate(1)}>
-          {"‣"}
-        </div>
-        <div className="prev" onClick={() => paginate(-1)}>
-          {"‣"}
-        </div>
-      </div>
-    );
-}
+//                 if (swipe < -swipeConfidenceThreshold) {
+//                     paginate(1);
+//                 } else if (swipe > swipeConfidenceThreshold) {
+//                     paginate(-1);
+//                 }
+//                 }}
+//             />
+//         </AnimatePresence>
+//         <div className="next" onClick={() => paginate(1)}>
+//           {"‣"}
+//         </div>
+//         <div className="prev" onClick={() => paginate(-1)}>
+//           {"‣"}
+//         </div>
+//       </div>
+//     );
+// }
 
 
 
@@ -238,7 +238,6 @@ export function Projects() {
     return (
         <div className="home-container">
             <h1 className="home-title">Projects</h1>
-                <CarouselType3 />
                 {
                     projectData.map((project, id) => {
                         return (
