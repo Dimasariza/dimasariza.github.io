@@ -260,7 +260,7 @@ export function Projects() {
                                     </div>
                                 </section>  
                                 <section>
-                                    <CarouselType3 carousel={project.carousel} />
+                                    <CarouselType2 carousel={project.carousel} />
                                 </section>
                             </div>
                         )
