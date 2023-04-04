@@ -24,7 +24,7 @@
   }
 
   .home-container {
-    @apply flex flex-col min-h-screen mx-32 
+    @apply flex flex-col min-h-screen lg:mx-36 md:mx-32 sm:mx-6 mx-2 
   }
 
   .responsive-grid {
