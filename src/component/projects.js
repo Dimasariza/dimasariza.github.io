@@ -1,6 +1,7 @@
 "use client"
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { wrap } from "popmotion";
 
 import docking1 from '../../public/asset/img/docking_home.png';
 import docking2 from '../../public/asset/img/docking_project.png';
@@ -28,7 +29,9 @@ import rest1 from '../../public/asset/img/restaurant_italian.png';
 import rest2 from '../../public/asset/img/restaurant_american.png';
 import rest3 from '../../public/asset/img/restaurant_thai.png';
 import rest4 from '../../public/asset/img/restaurant_japanese.png';
-
+import three1 from '../../public/asset/img/threejs1.png';
+import three2 from '../../public/asset/img/threejs2.png';
+import { useState } from 'react';
 
 const projectData = [
     {
@@ -65,22 +68,27 @@ const projectData = [
         demo : "https://dimasariza.github.io/restaurant/",
         code : "https://github.com/Dimasariza/restaurant",
         carousel : [rest1, rest2, rest3, rest4]
+    },
+    {
+        title : "Solar System",
+        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        demo : "https://dimasariza.github.io/restaurant/",
+        code : "https://github.com/Dimasariza/restaurant",
+        carousel : [three1, three2]
     }
 ];
 
-const MyImage = (props) =>  (
+const MyImage = ({src, alt}) =>  (
     <Image
-      src={props.src}
-      alt={props.alt}
+      src={src}
+      alt={alt}
       width={1000}
     />
 )
 
 // use carousel type 1
-const CarouselType1 = (props) => {
+const CarouselType1 = ({carousel}) => {
     const getImgName = (img) => img?.src.split("/")[4].split(".")[0];
-    const carousel = props.carousel;
-    console.log(carousel)
     return (
     <motion.div 
     className="carousel w-full"
@@ -112,10 +120,10 @@ const CarouselType1 = (props) => {
             })
         }
     </motion.div>
-    )}
+)}
 
 // use carousel type 2
-const CarouselType2 = (props) => {
+const CarouselType2 = ({carousel}) => {
     return (
         <>
             <motion.div 
@@ -125,9 +133,8 @@ const CarouselType2 = (props) => {
             dragConstraints={{ left: -100, right: 100 }}
             className="carousel w-full shadow-xl"
             >
-                
                 {   
-                    props.carousel.map(img => {
+                    carousel.map(img => {
                         const imgName = img.src.split("/")[4].split(".")[0];
                         return(
                             <div id={imgName} key={`image${imgName}`} className="carousel-item w-full">
@@ -139,7 +146,7 @@ const CarouselType2 = (props) => {
             </motion.div> 
             <div className="flex justify-center w-full py-2 gap-2">
                 {
-                    props.carousel.map((img, id) => {
+                    carousel.map((img, id) => {
                         const imgName = img.src.split("/")[4].split(".")[0];
                         return <a href={`#${imgName}`} key={`anchor${imgName}`} className="btn btn-xs scroll-smooth">{id + 1}</a>
                     })
@@ -149,22 +156,102 @@ const CarouselType2 = (props) => {
     )
 }
 
+// use carousel type 3
+const CarouselType3 = ({carousel}) => {
+    if(!carousel) return;
+    const variants = {
+        enter: (direction) => {
+            return {
+                x: direction > 0 ? 1000 : -1000,
+                opacity: 0
+            };
+        },
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1
+        },
+        exit: (direction) => {
+            return {
+                zIndex: 0,
+                x: direction < 0 ? 1000 : -1000,
+                opacity: 0
+            };
+        }
+    };
+    
+    const swipeConfidenceThreshold = 10000;
+    const swipePower = (offset, velocity) => {
+        return Math.abs(offset) * velocity;
+    };
+
+    const [[page, direction], setPage] = useState([0, 0]);
+    const imageIndex = wrap(0, carousel.length, page);
+  
+    const paginate = (newDirection) => {
+      setPage([page + newDirection, newDirection]);
+    };
+
+    return (
+      <div className='relative flex justify-center align-middle overflow-hidden'>
+        <AnimatePresence initial={false} custom={direction}>
+            <Image
+                key={page}
+                src={carousel[imageIndex]}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                alt='image'
+                transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 }
+                }}
+                drag="x"
+                dragconstraints={{ left: 0, right: 0 }}
+                dragelastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+    
+                if (swipe < -swipeConfidenceThreshold) {
+                    paginate(1);
+                } else if (swipe > swipeConfidenceThreshold) {
+                    paginate(-1);
+                }
+                }}
+            />
+        </AnimatePresence>
+        <div className="next" onClick={() => paginate(1)}>
+          {"‣"}
+        </div>
+        <div className="prev" onClick={() => paginate(-1)}>
+          {"‣"}
+        </div>
+      </div>
+    );
+}
+
 
 
 export function Projects() {
     return (
         <div className="home-container">
             <h1 className="home-title">Projects</h1>
-
+                <CarouselType3 />
                 {
                     projectData.map((project, id) => {
                         return (
-                            <div className='responsive-grid' key={project.title + id}>
+                            <div 
+                            className={projectData.length - 1 == id 
+                                ? 'responsive-grid' 
+                                : 'responsive-grid pb-20 border-b-blue-500 border-b'} 
+                            key={project.title + id} >
                                 <section>
                                     <h2 className='project-title'>{project.title}</h2>
                                     <p className='paragraph-text pr-16'>{project.description}</p>
                                     <div className='flex gap-3'>
-                                        <button className="btn bg-blue-400 sm:btn-sm md:btn-md lg:btn-md">
+                                        <button className="btn bg-blue-400 sm:btn-sm md:btn-md lg:btn-md glass">
                                             <a href={project.demo} target='blank'>Live Demo</a>
                                         </button>
                                         <button className="btn btn-outline text-blue-400 sm:btn-sm md:btn-md lg:btn-md">
@@ -173,7 +260,7 @@ export function Projects() {
                                     </div>
                                 </section>  
                                 <section>
-                                    <CarouselType2 carousel={project.carousel} />
+                                    <CarouselType3 carousel={project.carousel} />
                                 </section>
                             </div>
                         )

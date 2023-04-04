@@ -5,6 +5,20 @@ import { BsArrowUpCircle } from "react-icons/bs";
 import { motion } from "framer-motion";
 
 export default function Footer() {
+    const scroll2El = elID => {
+        window.scrollTo({
+          top: document.getElementById(elID),
+          behavior: 'smooth',
+        });
+    };
+
+    const onBtnClick = (e) => {
+        e.preventDefault();
+        const goto = e.target.getAttribute('goto');
+        setTimeout(() => {
+          scroll2El(goto);
+        }, 100);
+    }
     return (
         <>
         <div className="footer-icon gap-20">
@@ -13,8 +27,8 @@ export default function Footer() {
             <motion.a className="tooltip" data-tip="Get my CV" whileHover={{ scale: 1.2 }} href='/asset/file/CV.pdf' target="_blank" rel="noopener noreferrer" ><AiOutlineFilePdf /></motion.a>
         </div >
 
-        <div className="footer-icon mt-20">
-            <motion.a whileHover={{ scale: 1.2 }} href="#greating"><BsArrowUpCircle className="text-blue-500" /></motion.a>
+        <div className="footer-icon mt-20 animate-bounce">
+            <motion.button whileHover={{ scale: 1.2 }} goto="greating" onClick={onBtnClick}><BsArrowUpCircle className="text-blue-500" /></motion.button>
         </div>
 
         <div className="custom-shape-divider-bottom-1680370847">

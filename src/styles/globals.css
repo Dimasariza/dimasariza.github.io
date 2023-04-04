@@ -24,7 +24,7 @@
   }
 
   .home-container {
-    @apply flex flex-col min-h-screen mx-32
+    @apply flex flex-col min-h-screen mx-32 
   }
 
   .responsive-grid {
@@ -34,6 +34,10 @@
   .paragraph-text {
     @apply text-lg my-6
   }
+
+  .label-text {
+    @apply text-white
+  }
 }
 
 .about-bg {
@@ -41,6 +45,7 @@
   z-index: -1;
   width: 100%;
 }
+
 .custom-shape-divider-bottom-1680370847 {
   bottom: 0;
   left: 0;
@@ -59,4 +64,32 @@
 
 .custom-shape-divider-bottom-1680370847 .shape-fill {
   fill: #60A5FA;
+}
+
+.next,
+.prev {
+  top: calc(50% - 20px);
+  position: absolute;
+  background: white;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 2;
+  color: black;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+  transform: scale(-1);
 }

@@ -3,6 +3,21 @@ import Image from 'next/image';
 import bg from '../../public/asset/bg/bg.svg';
 
 export default function Greating() {
+    const scroll2El = elID => {
+        window.scrollTo({
+          top: document.getElementById(elID).offsetTop - 20,
+          behavior: 'smooth',
+        });
+    };
+
+    const onBtnClick = (e) => {
+        e.preventDefault();
+        const goto = e.target.getAttribute('goto');
+        setTimeout(() => {
+          scroll2El(goto);
+        }, 100);
+    }
+
     return (
         <AnimatePresence>
             <motion.div 
@@ -18,11 +33,11 @@ export default function Greating() {
                     <h1 className="text-blue-400">Roganda Dimas Ariza</h1>
                 </div>
                 <h2 className="my-2 lg:text-5xl md:text-4xl sm:text-3xl">I am a Web Developer</h2>
-                <button className="btn bg-blue-400 btn-lg my-5">
-                    <a href="#about_me">See More</a>
+                <button className="btn bg-blue-400 btn-lg my-5 glass" goto="about_me" onClick={onBtnClick}>
+                    See More
                 </button>
             </motion.div>
-        <Image id="about_me" className='about-bg' priority src={bg} alt='background' />
+        <Image className='about-bg' priority src={bg} alt='background' />
         </AnimatePresence>
     )
 }

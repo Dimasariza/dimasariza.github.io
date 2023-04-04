@@ -1,11 +1,27 @@
+"use client"
 import Head from 'next/head';
 import Greating from '@/component/greating';
 import Aboutme from '@/component/aboutme';
 import { Projects } from '@/component/projects';
 import Contact from '@/component/contact';
 import Footer from '@/component/footer';
+import { useCallback, useEffect } from 'react';
 
 export default function Home() {
+  // const onScroll = useCallback(event => {
+  //     const { pageYOffset, scrollY } = window;
+  //     console.log("yOffset", pageYOffset, "scrollY", scrollY);
+  //     // setScrollY(window.pageYOffset);
+  // }, []);
+
+  // useEffect(() => {
+  //   //add eventlistener to window
+  //   window.addEventListener("scroll", onScroll, { passive: true });
+  //   // remove event on unmount to prevent a memory leak with the cleanup
+  //   return () => {
+  //     window.removeEventListener("scroll", onScroll, { passive: true });
+  //   }
+  // }, []);
   return (
     <>
       <Head>
@@ -14,7 +30,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/asset/icon/icon16.png" />
       </Head>
-      <main >
+      <main className='bg-slate-900 text-white'>
         <Greating />
         <Aboutme />
         <Projects />
