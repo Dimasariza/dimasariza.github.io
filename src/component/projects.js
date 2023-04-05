@@ -36,44 +36,50 @@ import 'aos/dist/aos.css';
 const projectData = [
     {
         title : "Docking Software",
-        description : "I build this website with Angular JS library and Nebular Framework. I have used styled Bootstrap CSS to keep everything organize and responsive. I have implemented react hooks for my toggle. Website content is stored in data folder, which I am using to display content in my sections.",
+        description : "I build this website with Angular JS library and Nebular Framework. I have used styled Bootstrap CSS to keep everything organize and responsive. Integrate between client side and server side using rest API. Cooperate with backend developer to implements an interactive website using Laravel Framework.",
         demo : "http://docking.batera.id/#/auth/login",
         code : "",
+        tech : "Angular Js, Nebular, Bootstrap",
         carousel : [docking1, docking2, docking3, docking4, docking5, docking6]
     },
     {
         title : "AMS (Alarm Monitoring System)",
-        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        description : "The use of this application is to record the condition of the ship's engine. Build this website application with React JS library and React Electron. This application is integrated with Arduino devices developed using the C++ language.",
         demo : "",
         code : "",
+        tech : "React Js, React Electron, Bootstrap, C++",
         carousel : [pmsol1, pmsol2, pmsol3, pmsol4, pmsol5, pmsol6, pmsol7, pmsol8]
     },
     {
         title : "AIS Monitoring",
-        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        description : "I build this website with React JS library. I have used styled Bootstrap CSS to keep everything organize and responsive.",
         demo : "https://bateragames.github.io/ais-monitoring/",
         code : "https://github.com/BateraGames/ais-monitoring",
+        tech : "React Js, Bootstrap",
         carousel : [ais1, ais2, ais3, ais4]
     },
     {
         title : "Ship Route Finders",
-        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        description : "I build this website with Native Javascript. I have used styled Bootstrap CSS to keep everything organize and responsive.",
         demo : "https://dimasariza.github.io/SRF/",
         code : "https://github.com/Dimasariza/SRF",
+        tech : "Native Javascript, Bootstrap",
         carousel : [srf1, srf2, srf3, srf4]
     },
     {
         title : "Food Restaurant",
-        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        description : "This is my first web application to learn React. I build this website with React JS and learn about REST API consumption from open free API.",
         demo : "https://dimasariza.github.io/restaurant/",
         code : "https://github.com/Dimasariza/restaurant",
+        tech : "React Js, Bootstrap",
         carousel : [rest1, rest2, rest3, rest4]
     },
     {
         title : "Solar System",
-        description : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, sapiente, molestiae alias in quas iure debitis pariatur est quae iusto reiciendis vero totam earum similique excepturi ratione dignissimos saepe inventore",
+        description : "This is my first web application to learn three Js. I build this website with Vite js to learn 3d rendering on website.",
         demo : "https://dimasariza.github.io/restaurant/",
-        code : "https://github.com/Dimasariza/restaurant",
+        code : "https://github.com/Dimasariza/solar-system",
+        tech : "Vite Js, Three Js",
         carousel : [three1, three2]
     }
 ];
@@ -173,7 +179,8 @@ export function Projects() {
                                 <section data-aos="zoom-out-down" data-aos-duration="500">
                                     <h2 className='project-title' >{project.title}</h2>
                                     <p className='paragraph-text pr-16'>{project.description}</p>
-                                    <div className='flex gap-3'>
+                                    <span>Technologies : {project.tech}</span>
+                                    <div className='flex gap-3 mt-4'>
                                         <button className="btn bg-blue-400 sm:btn-sm md:btn-md lg:btn-md glass">
                                             <a href={project.demo} target='blank'>Live Demo</a>
                                         </button>
