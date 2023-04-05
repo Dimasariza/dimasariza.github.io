@@ -170,10 +170,10 @@ export function Projects() {
                                 : 'responsive-grid pb-20 border-b-blue-500 border-b'} 
                             key={project.title + id} 
                             >
-                                <section>
-                                    <h2 className='project-title' data-aos="fade-right" data-aos-duration="500">{project.title}</h2>
-                                    <p className='paragraph-text pr-16' data-aos="fade-right" data-aos-duration="800">{project.description}</p>
-                                    <div className='flex gap-3' data-aos="fade-right" data-aos-duration="1100">
+                                <section data-aos="zoom-out-down" data-aos-duration="500">
+                                    <h2 className='project-title' >{project.title}</h2>
+                                    <p className='paragraph-text pr-16'>{project.description}</p>
+                                    <div className='flex gap-3'>
                                         <button className="btn bg-blue-400 sm:btn-sm md:btn-md lg:btn-md glass">
                                             <a href={project.demo} target='blank'>Live Demo</a>
                                         </button>
@@ -182,7 +182,7 @@ export function Projects() {
                                         </button>
                                     </div>
                                 </section>  
-                                <section data-aos="fade-left" data-aos-duration="1200">
+                                <section data-aos="zoom-out-down" data-aos-duration="500">
                                     <CarouselType2 carousel={project.carousel} />
                                 </section>
                             </div>
