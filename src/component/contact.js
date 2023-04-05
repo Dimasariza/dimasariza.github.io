@@ -5,22 +5,12 @@ import { BsWhatsapp } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { AiOutlineLoading } from "react-icons/ai";
 
-
 const initValues = {
     senderName : "",
     senderEmail : "",
     subject : "",
     text : '',
 }
-
-// const initState = {
-//     value : {
-//         senderName : "sender",
-//         senderEmail : "sender@gmail.com",
-//         subject : "New Email",
-//         text : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, dignissimos quis blanditiis rerum nemo quos quae? Impedit aliquid sapiente, quod ducimus, animi dolorem consequatur eius, pariatur maiores consequuntur eos quasi!',
-//     }   
-// }
 
 export default function Contact() {
     const sendWhatsApp = () => {
