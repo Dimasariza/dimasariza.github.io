@@ -3,7 +3,7 @@ import me from '../../public/asset/img/me.png';
 
 export default function Aboutme() {
     return (
-        <div className="home-container scroll-mt-10" id="about_me">
+        <div className="home-container scroll-mt-10 z-10 relative" id="about_me">
             <h1 className="home-title">About me</h1>
             <div className="responsive-grid" >
                 <p className='paragraph-text'>

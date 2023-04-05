@@ -5,6 +5,23 @@ import { BsWhatsapp } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { AiOutlineLoading } from "react-icons/ai";
 
+
+const initValues = {
+    senderName : "",
+    senderEmail : "",
+    subject : "",
+    text : '',
+}
+
+// const initState = {
+//     value : {
+//         senderName : "sender",
+//         senderEmail : "sender@gmail.com",
+//         subject : "New Email",
+//         text : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, dignissimos quis blanditiis rerum nemo quos quae? Impedit aliquid sapiente, quod ducimus, animi dolorem consequatur eius, pariatur maiores consequuntur eos quasi!',
+//     }   
+// }
+
 export default function Contact() {
     const sendWhatsApp = () => {
         const number = '0895421010192';
@@ -12,16 +29,34 @@ export default function Contact() {
         window.open('https://api.whatsapp.com/send?phone=' + number + '&text=%20' + message);
     }
 
+    const [values, setValues] = useState(initValues);
+    const [emailResponse, setEmailResponse] = useState({emptyEmail : false, formEmail : false});
 
-    const [values, setValues] = useState({
-        senderName : "sender",
-        senderEmail : "sender@gmail.com",
-        subject : "New Email",
-        text : 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis, dignissimos quis blanditiis rerum nemo quos quae? Impedit aliquid sapiente, quod ducimus, animi dolorem consequatur eius, pariatur maiores consequuntur eos quasi!',
-    })
+    const handleChange = ({ target }) => 
+        setValues(prevState => ({
+          ...prevState,
+          [target.name] : target.value,
+        }));
 
-    const handleSubmit = async () => {
-        await sendContactForm(values)
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setEmailResponse(prev => ({...prev, formEmail : true}));
+        const response = await sendContactForm(values);
+        if(response.ok) {
+            setValues(initValues)
+            setEmailResponse(prev => ({...prev, formEmail : false}));
+        }
+    }
+
+    const hanldeEmptyEmail = async e => {
+        const emptyValues = {
+            ...initValues, 
+            senderName : "Anonymous Name",
+            subject : "Send Empty Email"
+        }
+        setEmailResponse(prev => ({...prev, emptyEmail : true}))
+        const response = await sendContactForm(emptyValues)
+        if(response.ok) setEmailResponse(prev => ({...prev, emptyEmail : false}))
     }
 
     return (
@@ -47,8 +82,12 @@ export default function Contact() {
                             <h2 className="card-title">Email</h2>
                             <p>My Email Address dimas.ariza20@gmail.com</p>
                             <div className="card-actions justify-end">
-                            <button className="btn bg-red-400" type="button" onClick={handleSubmit}>
-                                {/* <AiOutlineLoading className="animate-spin h-5 w-5 mr-3" /> */}
+                            <button className="btn bg-red-400" type="button" onClick={hanldeEmptyEmail}>
+                                {
+                                    emailResponse.emptyEmail
+                                    ? <AiOutlineLoading className="animate-spin h-5 w-5 mr-3" />
+                                    : ""
+                                }
                                 Email Me
                             </button>
                             </div>
@@ -58,20 +97,57 @@ export default function Contact() {
                 </div>
 
                 <form className="w-full max-w-xs">
-                    <div className="form-control">
+                    <div className="form-control text-black">
                         <label className="label">
-                            <span className="label-text">Full Name.</span>
+                            <span className="label-text">Full Name</span>
                         </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <input 
+                        type="text" 
+                        placeholder="Type here" 
+                        className="input-style" 
+                        name="senderName" 
+                        value={values.senderName}
+                        onChange={handleChange}
+                        />
                         <label className="label">
-                            <span className="label-text">Email.</span>
+                            <span className="label-text">Email</span>
                         </label>
-                        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                        <input 
+                        type="text" 
+                        placeholder="Type here" 
+                        className="input-style" 
+                        name="senderEmail" 
+                        value={values.senderEmail}
+                        onChange={handleChange}
+                        />
+                        <label className="label">
+                            <span className="label-text">Subject</span>
+                        </label>
+                        <input 
+                        type="text" 
+                        placeholder="Type here" 
+                        className="input-style" 
+                        name="subject" 
+                        value={values.subject}
+                        onChange={handleChange}
+                        />
                         <label className="label">
                             <span className="label-text">Message</span>
                         </label>
-                        <textarea className="textarea textarea-bordered h-24" placeholder="Type here"></textarea>
-                        <button className="btn bg-green-300 my-6" onClick={handleSubmit} >Send Email</button>
+                        <textarea 
+                        className="textarea textarea-bordered h-48 focus:border-sky-500 focus:border-2" 
+                        name="text" placeholder="Type here" 
+                        value={values.text}
+                        onChange={handleChange}
+                        ></textarea>
+                        <button className="btn bg-green-300 my-6" onClick={handleSubmit} >
+                                {
+                                    emailResponse.formEmail
+                                    ? <AiOutlineLoading className="animate-spin h-5 w-5 mr-3" />
+                                    : ""
+                                }
+                            Send Email
+                        </button>
                     </div>
                 </form>
             </div>

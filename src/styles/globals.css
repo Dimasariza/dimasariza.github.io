@@ -38,12 +38,10 @@
   .label-text {
     @apply text-white
   }
-}
 
-.about-bg {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
+  .input-style {
+    @apply input input-bordered w-full max-w-xs focus:border-sky-500 focus:border-2
+  }
 }
 
 .custom-shape-divider-bottom-1680370847 {
@@ -64,32 +62,4 @@
 
 .custom-shape-divider-bottom-1680370847 .shape-fill {
   fill: #60A5FA;
-}
-
-.next,
-.prev {
-  top: calc(50% - 20px);
-  position: absolute;
-  background: white;
-  border-radius: 30px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 18px;
-  z-index: 2;
-  color: black;
-}
-
-.next {
-  right: 10px;
-}
-
-.prev {
-  left: 10px;
-  transform: scale(-1);
 }
