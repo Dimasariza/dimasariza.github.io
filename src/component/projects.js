@@ -45,8 +45,8 @@ const projectData = [
     {
         title : "AMS (Alarm Monitoring System)",
         description : "The use of this application is to record the condition of the ship's engine. Build this website application with React JS library and React Electron. This application is integrated with Arduino devices developed using the C++ language.",
-        demo : "",
-        code : "",
+        demo : "/",
+        code : "https://github.com/Dimasariza/Alarm-Monitoring-System",
         tech : "React Js, React Electron, Bootstrap, C++",
         carousel : [pmsol1, pmsol2, pmsol3, pmsol4, pmsol5, pmsol6, pmsol7, pmsol8]
     },
@@ -77,7 +77,7 @@ const projectData = [
     {
         title : "Solar System",
         description : "This is my first web application to learn three Js. I build this website with Vite js to learn 3d rendering on website.",
-        demo : "https://dimasariza.github.io/restaurant/",
+        demo : "/",
         code : "https://github.com/Dimasariza/solar-system",
         tech : "Vite Js, Three Js",
         carousel : [three1, three2]
