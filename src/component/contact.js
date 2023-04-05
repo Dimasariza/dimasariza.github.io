@@ -62,7 +62,7 @@ export default function Contact() {
     return (
         <div className="home-container">
             <h1 className="home-title">Contact</h1>
-            <div className="responsive-grid justify-items-center">
+            <div className="responsive-grid justify-items-center" data-aos="fade-up" data-aos-duration="800">
                 <div className="gap-10 flex flex-col items-center">
 
                     <div className="card w-50 glass shadow-xl">
@@ -97,11 +97,10 @@ export default function Contact() {
                 </div>
 
                 <form className="w-full max-w-xs">
-                    <div className="form-control text-black">
-                        <label className="label">
-                            <span className="label-text">Full Name</span>
-                        </label>
+                    <div className="form-control"> 
+                        <label className="label" htmlFor="i_fullname">Full Name</label>
                         <input 
+                        id="i_fullname"
                         type="text" 
                         placeholder="Type here" 
                         className="input-style" 
@@ -109,10 +108,9 @@ export default function Contact() {
                         value={values.senderName}
                         onChange={handleChange}
                         />
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
+                        <label className="label" htmlFor="i_email">Email</label>
                         <input 
+                        id="i_email"
                         type="text" 
                         placeholder="Type here" 
                         className="input-style" 
@@ -120,10 +118,9 @@ export default function Contact() {
                         value={values.senderEmail}
                         onChange={handleChange}
                         />
-                        <label className="label">
-                            <span className="label-text">Subject</span>
-                        </label>
+                        <label className="label" htmlFor="i_subject">Subject</label>
                         <input 
+                        id="i_subject"
                         type="text" 
                         placeholder="Type here" 
                         className="input-style" 
@@ -131,11 +128,10 @@ export default function Contact() {
                         value={values.subject}
                         onChange={handleChange}
                         />
-                        <label className="label">
-                            <span className="label-text">Message</span>
-                        </label>
+                        <label className="label" htmlFor="i_text">Message</label>
                         <textarea 
-                        className="textarea textarea-bordered h-48 focus:border-sky-500 focus:border-2" 
+                        id="i_text"
+                        className="textarea textarea-bordered h-48 focus:border-sky-500 focus:border-2 text-black" 
                         name="text" placeholder="Type here" 
                         value={values.text}
                         onChange={handleChange}

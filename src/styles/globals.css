@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer components {
   html {
     @apply scroll-smooth;
@@ -20,7 +16,7 @@
   }
 
   .project-title {
-    @apply text-2xl  justify-center font-medium h-fit
+    @apply text-2xl justify-center font-medium h-fit
   }
 
   .home-container {
@@ -35,12 +31,8 @@
     @apply text-lg my-6
   }
 
-  .label-text {
-    @apply text-white
-  }
-
   .input-style {
-    @apply input input-bordered w-full max-w-xs focus:border-sky-500 focus:border-2
+    @apply input input-bordered w-full max-w-xs focus:border-sky-500 focus:border-2 text-black
   }
 }
 
@@ -62,4 +54,23 @@
 
 .custom-shape-divider-bottom-1680370847 .shape-fill {
   fill: #60A5FA;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #0F172A;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #60A5FA;  /* creates padding around scroll thumb */
+}
+
+body {
+  scrollbar-width: thin;          /* "auto" or "thin" */
+  scrollbar-color: blue black;   /* scroll thumb and track */ 
 }

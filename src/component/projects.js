@@ -30,6 +30,8 @@ import rest3 from '../../public/asset/img/restaurant_thai.png';
 import rest4 from '../../public/asset/img/restaurant_japanese.png';
 import three1 from '../../public/asset/img/threejs1.png';
 import three2 from '../../public/asset/img/threejs2.png';
+import 'aos/dist/aos.css'; 
+
 
 const projectData = [
     {
@@ -166,11 +168,12 @@ export function Projects() {
                             className={projectData.length - 1 == id 
                                 ? 'responsive-grid' 
                                 : 'responsive-grid pb-20 border-b-blue-500 border-b'} 
-                            key={project.title + id} >
+                            key={project.title + id} 
+                            >
                                 <section>
-                                    <h2 className='project-title'>{project.title}</h2>
-                                    <p className='paragraph-text pr-16'>{project.description}</p>
-                                    <div className='flex gap-3'>
+                                    <h2 className='project-title' data-aos="fade-right" data-aos-duration="500">{project.title}</h2>
+                                    <p className='paragraph-text pr-16' data-aos="fade-right" data-aos-duration="800">{project.description}</p>
+                                    <div className='flex gap-3' data-aos="fade-right" data-aos-duration="1100">
                                         <button className="btn bg-blue-400 sm:btn-sm md:btn-md lg:btn-md glass">
                                             <a href={project.demo} target='blank'>Live Demo</a>
                                         </button>
@@ -179,7 +182,7 @@ export function Projects() {
                                         </button>
                                     </div>
                                 </section>  
-                                <section>
+                                <section data-aos="fade-left" data-aos-duration="1200">
                                     <CarouselType2 carousel={project.carousel} />
                                 </section>
                             </div>
