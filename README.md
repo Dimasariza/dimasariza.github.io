@@ -5,10 +5,16 @@
 
 <p align="left"> <a href="https://twitter.com/" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a> </p>
 
+- 📝 I regularly write articles on [https://medium.com/@dimas.ariza20](https://medium.com/@dimas.ariza20)
+
 - 📫 How to reach me **dimas.ariza20@gmail.com**
+
+- 📄 Know about my experiences [https://drive.google.com/file/d/1ANzP-sm9CN5bZSFciZyQ2ZLj_2iA6zwl/view?usp=sharing](https://drive.google.com/file/d/1ANzP-sm9CN5bZSFciZyQ2ZLj_2iA6zwl/view?usp=sharing)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
+<a href="https://codepen.io/https://codepen.io/dimasariza" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="https://codepen.io/dimasariza" height="30" width="40" /></a>
+<a href="https://instagram.com/dimas.ar.dev" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="dimas.ar.dev" height="30" width="40" /></a>
 </p>
 
 <h3 align="left">Languages and Tools:</h3>
